@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Психология измены: тест и советы</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FC60HFNFH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8FC60HFNFH');
+  </script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('https://tse4.mm.bing.net/th?id=OIP.YOUR_IMAGE_ID_FROM_TURN0IMAGE2&pid=Api') 
+        center/cover no-repeat fixed;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+    }
+    h1 {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    p, .article p {
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    .quiz label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #c0392b;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e74c3c;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .articles {
+      margin-top: 40px;
+    }
+    .articles h2 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #f1c40f;
+    }
+    .article {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .article h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .article a {
+      color: #f39c12;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .article a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Тест: признаки измены</h1>
+    <p>Отметьте признаки, которые вы заметили в поведении партнёра:</p>
+    <div class="quiz">
+      <label><input type="checkbox" id="q1"> Скрытность с телефоном</label>
+      <label><input type="checkbox" id="q2"> Частые задержки вне дома</label>
+      <label><input type="checkbox" id="q3"> Избегание близости</label>
+      <label><input type="checkbox" id="q4"> Изменение распорядка</label>
+      <label><input type="checkbox" id="q5"> Необоснованная агрессия</label>
+      <label><input type="checkbox" id="q6"> Отказ показывать переписки</label>
+      <label><input type="checkbox" id="q7"> Снижение заботы и внимания</label>
+    </div>
+    <button onclick="checkInfidelity()">Проверить</button>
+    <div id="result"></div>
+
+    <div class="articles">
+      <h2>Реальные статьи по профилактике измен</h2>
+
+      <div class="article">
+        <h3><a href="https://www.psychologies.ru/standpoint/tri-shaga-chtobyi-predotvratit-izmenu/" target="_blank">
+          Три шага, чтобы предотвратить измену</a></h3>
+        <p>
+          Осознанность и честный разговор: тренер по осознанности Келли Бойз рекомендует три ключевых шага —
+          договориться о границах, регулярно обсуждать ожидания и практиковать эмпатию, чтобы укрепить доверие в паре.
+        </p>
+      </div>
+
+      <div class="article">
+        <h3><a href="https://www.thevoicemag.ru/psychology/psychology/kak-izbezhat-izmeny-5-rabotayushchih-sovetov-ot-ekspertov/" target="_blank">
+          5 работающих советов, как избежать измены</a></h3>
+        <p>
+          Эксперты советуют: поддерживайте эмоциональную близость через совместные ритуалы, учитесь признавать свои
+          чувства без обвинений, и не забывайте про личные границы — это снижает риск появления «эмоционального
+          вакуума» в отношениях.
+        </p>
+      </div>
+
+      <div class="article">
+        <h3><a href="https://www.b17.ru/article/kak_izbezhat_izmen_v_pare_profilaktika_nevernosti/" target="_blank">
+          Как избежать измен в паре: профилактика неверности</a></h3>
+        <p>
+          Психолог Ирина Мартемьянова подчёркивает важность «раннего сигнала» — обращайте внимание на мелкие изменения
+          в поведении партнёра, работайте с конфликтами на этапе недопонимания и поддерживайте регулярные зоны
+          эмоционального комфорта.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function checkInfidelity() {
+      let score = 0;
+      for (let i = 1; i <= 7; i++) {
+        if (document.getElementById('q' + i).checked) score++;
+      }
+      let msg = score <= 1
+        ? 'Низкая вероятность измены. Но оставайтесь внимательны.'
+        : score <= 3
+          ? 'Средняя вероятность измены. Обсудите опасения с партнёром.'
+          : 'Высокая вероятность измены. Рекомендуем профессиональную помощь.';
+      document.getElementById('result').innerText = `Вы отметили ${score} признака(ов). ${msg}`;
+      gtag('event', 'infidelity_quiz', {
+        'event_category': 'interaction',
+        'event_label': 'Quiz Result',
+        'quiz_score': score
+      });
+    }
+  </script>
+</body>
+</html>
