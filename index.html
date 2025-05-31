@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-2653744961958770">
+  <!-- Яндекс-верификация -->
+  <meta name="yandex-verification" content="1a3853421e5cfab9" />
 
   <!-- AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-2653744961958770"
@@ -12,11 +13,33 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FC60HFNFH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-8FC60HFNFH');
   </script>
 
+  <!-- Яндекс.Метрика (общий счётчик для всех сайтов) -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){ (m[i].a=m[i].a||[]).push(arguments) };
+      m[i].l=1*new Date();
+      k=e.createElement(t), a=e.getElementsByTagName(t)[0];
+      k.async=1; k.src=r; a.parentNode.insertBefore(k,a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(ВАШ_ID_СЧЁТЧИКА, "init", {
+      clickmap:true,
+      trackLinks:true,
+      accurateTrackBounce:true,
+      webvisor:true,
+      trackHash:true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/ВАШ_ID_СЧЁТЧИКА" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+
+  <!-- Стили для страницы -->
   <style>
     html, body {
       margin: 0; padding: 0;
@@ -40,10 +63,15 @@
       font-size: 24px;
       margin-bottom: 15px;
     }
+    p {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
     .quiz label {
       display: block;
       margin: 10px 0;
       cursor: pointer;
+      text-align: left;
     }
     input[type="checkbox"] {
       margin-right: 8px;
@@ -86,6 +114,7 @@
     .article h3 {
       margin-bottom: 8px;
       font-size: 18px;
+      color: #ffeaa7;
     }
     .article p {
       font-size: 14px;
@@ -97,6 +126,19 @@
       font-weight: bold;
     }
     .article a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #bbb;
+    }
+    footer a {
+      color: #f39c12;
+      text-decoration: none;
+    }
+    footer a:hover {
       text-decoration: underline;
     }
   </style>
@@ -144,6 +186,10 @@
         </p>
       </div>
     </div>
+
+    <footer>
+      &copy; 2025 Alex-art1994. <a href="https://alex-art1994.github.io/">Все сайты</a>
+    </footer>
   </div>
 
   <script>
@@ -158,6 +204,7 @@
           ? 'Средняя вероятность измены. Обсудите ваши опасения с партнёром.'
           : 'Высокая вероятность измены. Рекомендуем профессиональную помощь.';
       document.getElementById('result').innerText = `Вы отметили ${score} признака(ов). ${msg}`;
+      // Событие в GA4
       gtag('event', 'infidelity_quiz', {
         'event_category': 'interaction',
         'event_label': 'Quiz Result',
